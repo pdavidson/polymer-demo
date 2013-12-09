@@ -1,0 +1,17 @@
+extends layout
+
+block head
+	link(rel="import", href="x-foo.html")
+	link(rel="import", href="tk-element-proto.html")
+
+block content
+	x-foo
+	br
+	tk-element-proto(owner="Peter", color="red")
+	script.
+		window.addEventListener('WebComponentsReady', function(e){
+			var eleProto = document.querySelector('tk-element-proto')
+			eleProto.owner='Greg';
+			eleProto.color="green";
+		});
+
